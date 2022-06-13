@@ -1,4 +1,4 @@
-schema: http://sample.ace-mc-bohol.com:4000/graphql
+schema: http://192.168.254.104:4000/graphql
 documents: ./src/framework/graphql/**/*.graphql
 plugins:
   - typescript-operations
