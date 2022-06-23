@@ -24,7 +24,7 @@ pipeline {
 		        sh 'docker run -d -p "3000:3000"  intjborj/ace-book-front'
 
             }
-        
+	  }
         stage('login to dockerhub') {
             steps{
                 sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
