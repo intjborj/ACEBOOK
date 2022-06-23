@@ -13,15 +13,15 @@ pipeline {
         stage('Build and Run docker Backend') {
             steps {  
 	//	  sh 'docker-compose up -d'
-                sh 'docker build ./api -t  intjborj/ace-book-api'
-                sh 'docker run -d -p "4000:4000"  intjborj/ace-book-api'
+                sh 'docker build ./api -t  jacksemis101/ace-book-api'
+                sh 'docker run -d -p "4000:4000"  jacksemis101/ace-book-api'
             }
         }
  	  stage('Build and Run docker Frontend') {
             steps {  
 
-		        sh 'docker build ./front -t  intjborj/ace-book-front'
-		        sh 'docker run -d -p "3000:3000"  intjborj/ace-book-front'
+		        sh 'docker build ./front -t  jacksemis101/ace-book-front'
+		        sh 'docker run -d -p "3000:3000"  jacksemis101/ace-book-front'
 
             }
 	  }
