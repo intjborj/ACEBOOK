@@ -14,14 +14,14 @@ pipeline {
             steps {  
 	//	  sh 'docker-compose up -d'
                 sh 'docker build ./api -t  jacksemis101/ace-book-api'
-                sh 'docker run -d -p "4000:4000" -v $(pwd)/var/myapi:/src jacksemis101/ace-book-api'
+                sh 'docker run -v ~/home/srv/myapi:/src  -p "4000:4000" -d  jacksemis101/ace-book-api'
             }
         }
  	  stage('Build and Run docker Frontend') {
             steps {  
 
 		        sh 'docker build ./front -t  jacksemis101/ace-book-front'
-		        sh 'docker run -d -p "3000:3000" -v $(pwd)/var/myfront:/src  jacksemis101/ace-book-front'
+		        sh 'docker run -v ~/home/srv/myfront:/src  -p "3000:3000" -d  jacksemis101/ace-book-front'
 
             }
 	  }
