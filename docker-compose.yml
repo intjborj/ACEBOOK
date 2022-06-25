@@ -4,4 +4,8 @@ services:
     build: ./api
     ports:
       - "4000:4000"
+    volume:
+      - api:/usr/src/app/acebook/api
+volumes:
+  api:
     
