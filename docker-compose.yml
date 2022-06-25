@@ -11,7 +11,7 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - front:/usr/src/app/acebook/api
+      - front:/usr/src/app/acebook/front
       
       
 volumes:
