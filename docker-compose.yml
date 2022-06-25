@@ -1,14 +1,8 @@
-version: '2.1'
-
+version: "3"
 services:
-  api-service: 
-    build: ./api
-    volumes:
-      - ./api:/usr/src/app/acebook/api
+  app-api:
+    build: ./api -t  jacksemis101/ace-book-api
     ports:
-      - 4000:4000
-      
- 
-  
-
-  
+      - "4000:4000"
+    volumes:
+      - api:/usr/src/app/acebook/api
