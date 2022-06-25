@@ -10,7 +10,7 @@ pipeline {
             }
         }
 
-        stage('Build and Run docker Backend') {
+        stage('Build and Run docker Backend & Front') {
             steps {  
 	//	  sh 'docker-compose up -d'
                 sh 'docker-compose up -d'
