@@ -8,13 +8,14 @@ services:
       - api:/usr/src/app/acebook/api
       
   app-front:
+    depends_on:
+      - app-api
     build: ./front
     ports:
       - "3000:3000"
     volumes:
       - front:/usr/src/app/acebook/front
-    depends_on:
-      - app-api
+    
       
 volumes:
   api:
