@@ -1,4 +1,4 @@
-version: "3"
+version: "2.1"
 services:
   app-front:
     build: ./front
@@ -7,7 +7,8 @@ services:
     volumes:
       - front:/usr/src/app/acebook/front
     depends_on:
-      - app-api
+      app-api:
+        condition: service_healthy
       
   app-api:
     build: ./api
