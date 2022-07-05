@@ -1,5 +1,12 @@
 version: "3"
 services:
+ app-api:
+    build: ./api
+    ports:
+      - "4000:4000"
+    volumes:
+      - api:/usr/src/app/acebook/api
+      
   app-front:
     build: ./front
     ports:
@@ -9,13 +16,6 @@ services:
     depends_on:
       - app-api
       
-  app-api:
-    build: ./api
-    ports:
-      - "4000:4000"
-    volumes:
-      - api:/usr/src/app/acebook/api
-       
 volumes:
   api:
   front:
