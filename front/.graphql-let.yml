@@ -1,4 +1,4 @@
-schema: http://172.16.10.101:4000/graphql
+schema: http://192.168.254.107:4000/graphql
 documents: ./src/framework/graphql/**/*.graphql
 plugins:
   - typescript-operations
