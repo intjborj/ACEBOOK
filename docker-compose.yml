@@ -10,7 +10,7 @@ services:
         test: ["CMD", "curl", "-f", "http://192.168.254.107:4000"]
         interval: 30s
         timeout: 10s
-        retries: 5  
+        retries: 5
       
       
   app-front:
@@ -20,8 +20,8 @@ services:
     volumes:
       - front:/usr/src/app/acebook/front
     depends_on:
-      app-api:
-        condition: service_healthy
+      - app-api
+       
     
       
 volumes:
