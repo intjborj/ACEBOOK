@@ -20,7 +20,7 @@ services:
     volumes:
       - front:/usr/src/app/acebook/front
     depends_on:
-       rabbit:
+      app-api:
         condition: service_healthy
     
       
