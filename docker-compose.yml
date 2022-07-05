@@ -7,7 +7,7 @@ services:
     volumes:
       - front:/usr/src/app/acebook/front
     depends_on:
-      - "app-api"
+      - app-api
       
   app-api:
     build: ./api
@@ -15,9 +15,7 @@ services:
       - "4000:4000"
     volumes:
       - api:/usr/src/app/acebook/api
-  
-  
-      
+       
 volumes:
   api:
   front:
