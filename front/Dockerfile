@@ -4,6 +4,7 @@ WORKDIR /usr/src/app/acebook/front
 # COPY package*.json ./
 COPY . .
 
+RUN chmod +x wait-for
 RUN yarn
 RUN yarn build:gql
 EXPOSE 3000
