@@ -13,7 +13,6 @@ services:
       - "3000:3000"
     volumes:
       - front:/usr/src/app/acebook/front
-    command: sh -c 'usr/src/app/acebook/front/wait-for.sh http://192.168.254.107:4000/graphql -- echo "api site is up"'
     depends_on:
       - app-api  
 volumes:
