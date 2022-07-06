@@ -1,27 +1,22 @@
 version: "2.1"
 services:
-  app-front:
-    build: ./front
-    ports:
-      - "3000:3000"
-    volumes:
-      - front:/usr/src/app/acebook/front
-    depends_on:
-      app-api:
-        condition: service_healthy
-      
   app-api:
     build: ./api
     ports:
       - "4000:4000"
     volumes:
       - api:/usr/src/app/acebook/api
-    healthcheck:
-        test: ["CMD", "curl", "-f", "http://192.168.254.107:4000"]
-        interval: 30s
-        timeout: 10s
-        retries: 5
-         
+
+  app-front:
+    build: ./front
+    ports:
+      - "3000:3000"
+    volumes:
+      - front:/usr/src/app/acebook/front
+    command: sh -c './wait-for http:192.168.254.107:4000 -- echo "The api is up! Lets use it"'
+    depends_on:
+      - app-api
+      
 volumes:
   api:
   front:
