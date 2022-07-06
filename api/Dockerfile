@@ -3,6 +3,7 @@ WORKDIR /usr/src/app/acebook/api
 COPY package*.json ./
 COPY . .
 
+RUN chmod +x wait-for
 RUN yarn
 RUN yarn build
 EXPOSE 4000
