@@ -1,4 +1,4 @@
-version: "3"
+version: "3.9"
 services:
   app-api:
     build: ./api
@@ -7,18 +7,15 @@ services:
     volumes:
       - api:/usr/src/app/acebook/api
     
-    
-
   app-front:
     build: ./front
-    command:  sh -c '/usr/src/app/acebook/front/wait-for http://192.168.254.107:4000 -- echo "The api is up! Lets use it"'
     ports:
       - "3000:3000"
     volumes:
-      - front:/usr/src/app/acebook/front  
+      - front:/usr/src/app/acebook/front
+    command: sh -c 'usr/src/app/acebook/front/wait-for.sh http://192.168.254.107:4000/graphql -- echo "api site is up"'
     depends_on:
-      - app-api
-      
+      - app-api  
 volumes:
   api:
   front:
