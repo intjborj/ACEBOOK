@@ -6,7 +6,7 @@ services:
       - "4000:4000"
     volumes:
       - api:/usr/src/app/acebook/api
-    command: sh -c './wait-for http://192.168.254.107:4000 -- echo "The api is up! Lets use it"'  
+    
 
   app-front:
     build: ./front
@@ -14,6 +14,7 @@ services:
       - "3000:3000"
     volumes:
       - front:/usr/src/app/acebook/front
+    command: sh -c './wait-for http://192.168.254.107:4000 -- echo "The api is up! Lets use it"'  
     depends_on:
       - app-api
       
