@@ -16,7 +16,7 @@ pipeline {
    
             }
         }
-	    stage('Build and Run docker Backend') {
+	    stage('Build and Run docker Frontend') {
             steps {  
 	  sh 'docker-compose  --profile frontend up -d'
    
