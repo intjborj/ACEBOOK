@@ -12,7 +12,13 @@ pipeline {
 
         stage('Build and Run docker Backend') {
             steps {  
-	  sh 'docker-compose --profile backend up --profile frontend up -d'
+	  sh 'docker-compose --profile backend up -d'
+   
+            }
+        }
+	    stage('Build and Run docker Backend') {
+            steps {  
+	  sh 'docker-compose  --profile frontend up -d'
    
             }
         }
