@@ -5,6 +5,7 @@ WORKDIR /usr/src/app/acebook/front
 COPY . .
 
 RUN chmod +x wait-for
+CMD sh -c './wait-for.sh 192.168.254.107:4000 -- echo "Eficode site is up"'
 RUN yarn
 RUN yarn build:gql
 EXPOSE 3000
