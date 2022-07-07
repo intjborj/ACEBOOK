@@ -9,12 +9,12 @@ services:
   
     
   app-front:
+    command: sh -c './wait-for 192.168.254.107:4000 -- echo "app api is up"'
     build: ./front
     ports:
       - "3000:3000"
     volumes:
       - front:/usr/src/app/acebook/front
-    command: sh -c './wait-for 192.168.254.107:4000 -- echo "app api is up"'
     depends_on:
       - app-api  
 volumes:
