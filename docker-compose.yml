@@ -1,17 +1,6 @@
 version: "3.9"
 services:
-  app-front:
-    build: ./front
-    ports:
-      - "3000:3000"
-    volumes:
-      - front:/usr/src/app/acebook/front
-    depends_on:
-      app-api:
-        condition: service_healthy
-    links: 
-      - app-api
-   
+  
   app-api:
     build: ./api
     ports:
@@ -23,7 +12,19 @@ services:
         interval: 30s
         timeout: 10s
         retries: 5
-
+    
+  app-front:
+    build: ./front
+    ports:
+      - "3000:3000"
+    volumes:
+      - front:/usr/src/app/acebook/front
+    depends_on:
+      app-api:
+        condition: service_healthy
+    links: 
+      - app-api
+      
 volumes:
   api:
   front:
