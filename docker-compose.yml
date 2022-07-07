@@ -1,18 +1,6 @@
 version: "3.9"
 services:
   
-  app-api:
-    build: ./api
-    ports:
-      - "4000:4000"
-    volumes:
-      - api:/usr/src/app/acebook/api
-    healthcheck:
-        test: ["CMD", "curl", "-f", "http://192.168.254.107:4000"]
-        interval: 30s
-        timeout: 10s
-        retries: 5
-    
   app-front:
     build: ./front
     ports:
@@ -24,7 +12,19 @@ services:
         condition: service_healthy
     links: 
       - app-api
-      
+  
+  app-api:
+    build: ./api
+    ports:
+      - "4000:4000"
+    volumes:
+      - api:/usr/src/app/acebook/api
+    healthcheck:
+        test: ["CMD", "curl", "-f", "http://192.168.254.107:4000"]
+        interval: 30s
+        timeout: 10s
+        retries: 5
+  
 volumes:
   api:
   front:
