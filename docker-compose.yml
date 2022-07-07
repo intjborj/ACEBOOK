@@ -6,7 +6,7 @@ services:
       - "4000:4000"
     volumes:
       - api:/usr/src/app/acebook/api
-    command: sh -c './wait-for 192.168.254.107:4000 -- docker-compose up app-front -d'
+    profiles: [backend]
    
     
   app-front:
