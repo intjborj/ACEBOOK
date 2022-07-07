@@ -12,11 +12,16 @@ pipeline {
 
         stage('Build and Run docker Backend') {
             steps {  
-	  sh 'docker-compose --profile backend --profile frontend up'
+	  sh 'docker-compose --profile backend up -d'
    
             }
         }
- 	
+ 	stage('Build and Run docker Frontend') {
+            steps {  
+	  sh 'docker-compose --profile frontend up -d'
+   
+            }
+        }
         stage('login to dockerhub') {
             steps{
                 sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
