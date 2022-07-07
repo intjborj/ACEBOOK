@@ -7,11 +7,7 @@ services:
       - "3000:3000"
     volumes:
       - front:/usr/src/app/acebook/front
-    depends_on:
-      app-api:
-        condition: service_healthy
-    links: 
-      - app-api
+   
   
   app-api:
     build: ./api
