@@ -9,7 +9,8 @@ services:
     depends_on:
       app-api:
         condition: service_healthy
-    
+    links: 
+      - app-api
    
   app-api:
     build: ./api
