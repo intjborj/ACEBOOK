@@ -13,6 +13,7 @@ services:
       - "3000:3000"
     volumes:
       - front:/usr/src/app/acebook/front
+    command: ["./wait-for.sh", "192.168.254.107:4000", "--", ""]
     depends_on:
       - app-api  
       
